@@ -1,5 +1,8 @@
 package org.launchcode.exercises;
 
+import org.launchcode.Temperature.TemperatureException;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +20,13 @@ public class Main {
         studentFiles.put("Stefanie", "CoolProgram.java");
 
         // Test out your CheckFileExtension() function!
+        System.out.println(studentFiles);
+        System.out.println(studentFiles.entrySet());
+        System.out.println(studentFiles.keySet());
+        for (String student: studentFiles.keySet()) {
+            System.out.println(student + ": " + studentFiles.get(student));
+            System.out.println(CheckFileExtension(studentFiles.get(student)));
+        }
     }
 
     public static void Divide(int x, int y) {
@@ -29,9 +39,17 @@ public class Main {
         } else System.out.println(x/y);
     }
 
-//    public static int CheckFileExtension(String fileName)
-//    {
-//        // Write code here!
-//    }
-
+    public static int CheckFileExtension(String fileName)
+    {
+        if (fileName.contains(".java")){
+            return 1;
+        } else if (fileName.isEmpty() || fileName == null) {
+            try {
+                throw new FileExtensionException("Extension not found!");
+            } catch (FileExtensionException e) {
+                e.printStackTrace();
+            }
+            return -1;
+        } else return 0;
+    }
 }
