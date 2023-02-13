@@ -34,7 +34,7 @@ public class Main {
             try {
                 throw new ArithmeticException("Cannot divide by zero!");
             } catch (ArithmeticException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         } else System.out.println(x/y);
     }
@@ -47,7 +47,7 @@ public class Main {
             try {
                 throw new FileExtensionException("Extension not found!");
             } catch (FileExtensionException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
             return -1;
         } else return 0;
